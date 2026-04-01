@@ -7,7 +7,7 @@ from configs.your_configs import *
 import sys
 
 #def main(datafolder, datafolder_icbeb, outputfolder):
-def main(datafolder, , outputfolder):
+def main(datafolder, outputfolder):
 
 
     models = [
