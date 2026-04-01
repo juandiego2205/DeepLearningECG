@@ -6,11 +6,12 @@ from configs.wavelet_configs import *
 from configs.your_configs import *
 import sys
 
-def main(datafolder, datafolder_icbeb, outputfolder):
+#def main(datafolder, datafolder_icbeb, outputfolder):
+def main(datafolder, , outputfolder):
 
 
     models = [
-        conf_fastai_xresnet1d101,
+        # conf_fastai_xresnet1d101,
         # conf_fastai_resnet1d_wang,
         # conf_fastai_lstm,
         # conf_fastai_lstm_bidir,
@@ -22,7 +23,7 @@ def main(datafolder, datafolder_icbeb, outputfolder):
         # conf_tf_inception_diagnostic,
         # conf_tf_inception_form,
         # conf_tf_inception_rhythm,
-        # conf_tf_inception_subdiagnostic,
+        conf_tf_inception_subdiagnostic,
         # conf_tf_inception_superdiagnostic
         ]
 
@@ -45,7 +46,8 @@ def main(datafolder, datafolder_icbeb, outputfolder):
         e = SCP_Experiment(name, task, datafolder, outputfolder, models)
         e.prepare()
         e.perform()
-        e.evaluate(n_bootstraping_samples=100, bootstrap_eval=True, dumped_bootstraps=False)
+        e.evaluate(n_bootstraping_samples=1, bootstrap_eval=True, dumped_bootstraps=False)
+        #e.evaluate(n_bootstraping_samples=100, bootstrap_eval=True, dumped_bootstraps=False)
 
     # generate greate summary table
     utils.generate_ptbxl_summary_table(folder = outputfolder)
@@ -54,16 +56,17 @@ def main(datafolder, datafolder_icbeb, outputfolder):
     # EXPERIMENT BASED ICBEB DATA
     ##########################################
 
-    e = SCP_Experiment('exp_ICBEB', 'all', datafolder_icbeb, outputfolder, models)
-    e.prepare()
-    e.perform()
-    e.evaluate()
+    # e = SCP_Experiment('exp_ICBEB', 'all', datafolder_icbeb, outputfolder, models)
+    # e.prepare()
+    # e.perform()
+    # e.evaluate()
 
-    # generate greate summary table
-    utils.ICBEBE_table(folder=outputfolder)
+    # # generate greate summary table   
+    # utils.ICBEBE_table(folder=outputfolder)
 
 if __name__ == "__main__":
     if not (len(sys.argv) == 4):
         raise Exception('Include the data and model folders as arguments, e.g., python reproduce_results.py ./path/to/data/ ./path/to/icbeb/ ./path/to/output/')
     else:
-        main(datafolder = sys.argv[1], datafolder_icbeb = sys.argv[2], outputfolder = sys.argv[3])
+        #main(datafolder = sys.argv[1], datafolder_icbeb = sys.argv[2], outputfolder = sys.argv[3])
+        main(datafolder = sys.argv[1], outputfolder = sys.argv[2])
