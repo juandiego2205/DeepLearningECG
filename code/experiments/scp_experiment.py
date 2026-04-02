@@ -237,7 +237,7 @@ class SCP_Experiment():
             mpath = os.path.join(self.outputfolder, self.experiment_name, 'data')
 
             # Verifica que los archivos existen
-            for f in ['y_train_pred.npy','y_val_pred.npy','y_test_pred.npy']:
+            for f in ['y_train.npy','y_val.npy','y_test.npy']:
                 file_path = os.path.join(mpath, f)
                 if not os.path.exists(file_path):
                     raise Exception(f"No se encontró {file_path}. Necesitas correr el fit al menos una vez.")
