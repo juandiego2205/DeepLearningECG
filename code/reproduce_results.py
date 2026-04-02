@@ -11,7 +11,7 @@ def main(datafolder, outputfolder):
 
 
     models = [
-        # conf_fastai_xresnet1d101,
+        conf_fastai_xresnet1d101,
         # conf_fastai_resnet1d_wang,
         # conf_fastai_lstm,
         # conf_fastai_lstm_bidir,
@@ -23,7 +23,7 @@ def main(datafolder, outputfolder):
         # conf_tf_inception_diagnostic,
         # conf_tf_inception_form,
         # conf_tf_inception_rhythm,
-        conf_tf_inception_subdiagnostic,
+        #conf_tf_inception_subdiagnostic,
         # conf_tf_inception_superdiagnostic
         ]
 
