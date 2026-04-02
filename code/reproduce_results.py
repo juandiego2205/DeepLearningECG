@@ -44,8 +44,8 @@ def main(datafolder, outputfolder):
         print(name)
         print(task)
         e = SCP_Experiment(name, task, datafolder, outputfolder, models)
-        e.prepare()
-        e.perform()
+        #e.prepare()
+        e.perform_only_load()  # carga solo predicciones existentes
         e.evaluate(n_bootstraping_samples=1, bootstrap_eval=True, dumped_bootstraps=False)
         #e.evaluate(n_bootstraping_samples=100, bootstrap_eval=True, dumped_bootstraps=False)
 

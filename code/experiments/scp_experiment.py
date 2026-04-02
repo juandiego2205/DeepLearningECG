@@ -228,3 +228,21 @@ class SCP_Experiment():
             #tr_df_result.to_csv(rpath+'tr_results.csv')
             #val_df_result.to_csv(rpath+'val_results.csv')
             te_df_result.to_csv(rpath+'te_results.csv')
+
+    #funcion prueba       
+    def perform_only_load(self):
+        """No entrena, solo asegura que existan las predicciones de cada modelo"""
+        for model_description in self.models:
+            modelname = model_description['modelname']
+            mpath = os.path.join(self.outputfolder, self.experiment_name, 'models', modelname)
+
+            # Verifica que los archivos existen
+            for f in ['y_train_pred.npy','y_val_pred.npy','y_test_pred.npy']:
+                file_path = os.path.join(mpath, f)
+                if not os.path.exists(file_path):
+                    raise Exception(f"No se encontró {file_path}. Necesitas correr el fit al menos una vez.")
+
+        # También carga el ensemble si existe
+        ensemblepath = os.path.join(self.outputfolder, self.experiment_name, 'models', 'ensemble')
+        if os.path.exists(ensemblepath):
+            print("Ensemble disponible")

@@ -289,7 +289,7 @@ class fastai_model(ClassificationModel):
         y_dummy = [np.ones(self.num_classes,dtype=np.float32) for _ in range(len(X))]
         
         learn = self._get_learner(X,y_dummy,X,y_dummy)
-        learn.load(self.name)
+        learn.load(self.name, with_opt=False)
         
         preds,targs=learn.get_preds()
         preds=to_np(preds)
