@@ -236,7 +236,7 @@ class SCP_Experiment():
             modelname = model_description['modelname']
             mpath = os.path.join(self.outputfolder, self.experiment_name, 'data')
 
-            # Verifica que los archivos existen
+            # Verifica que los archivos
             for f in ['y_train.npy','y_val.npy','y_test.npy']:
                 file_path = os.path.join(mpath, f)
                 if not os.path.exists(file_path):
