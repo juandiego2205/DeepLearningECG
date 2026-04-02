@@ -234,7 +234,7 @@ class SCP_Experiment():
         """No entrena, solo asegura que existan las predicciones de cada modelo"""
         for model_description in self.models:
             modelname = model_description['modelname']
-            mpath = os.path.join(self.outputfolder, self.experiment_name, 'models', modelname)
+            mpath = os.path.join(self.outputfolder, self.experiment_name, 'data')
 
             # Verifica que los archivos existen
             for f in ['y_train_pred.npy','y_val_pred.npy','y_test_pred.npy']:
